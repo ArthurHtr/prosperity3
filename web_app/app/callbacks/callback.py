@@ -48,10 +48,13 @@ def register_callbacks(app):
         Input('day-dropdown', 'value'),
         Input('start-timestamp-dropdown', 'value'),
         Input('end-timestamp-dropdown', 'value'),
-        Input('price-options-dropdown', 'value')]
+        Input('price-options-dropdown', 'value'),
+        Input('tech-indicators-checklist', 'value'),
+        Input('sma-period', 'value'),
+        Input('ema-period', 'value')]
     )
 
-    def render_content(tab, product, day, start_ts, end_ts, price_options):
+    def render_content(tab, product, day, start_ts, end_ts, price_options, tech_indicators, sma_period, ema_period):
         # Chargement des données
         market_data = csv_controller.load_market_data(product, day)
         trades_data = trade_controller.load_trades_data(product, day)
@@ -63,7 +66,7 @@ def register_callbacks(app):
             trades_data = trades_data[(trades_data['timestamp'] >= start_ts) & (trades_data['timestamp'] <= end_ts)]
         
         if tab == 'tab-price':
-            fig = chart_controller.create_price_chart(market_data, price_options, trades_data)
+            fig = chart_controller.create_price_chart(market_data, price_options, trades_data, tech_indicators, sma_period, ema_period)
         elif tab == 'tab-volume':
             fig = chart_controller.create_volume_chart(market_data)
         elif tab == 'tab-trades':
