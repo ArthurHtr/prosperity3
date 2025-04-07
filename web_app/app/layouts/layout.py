@@ -70,7 +70,30 @@ def get_layout():
                 value=['mid_price']  # valeur par défaut
             )
         ], id='price-options', style={'textAlign': 'center', 'padding': '10px 0', 'display': 'none'}),
-        
+
+        html.Div([
+            html.Label("Indicateurs techniques:"),
+            dcc.Checklist(
+                id='tech-indicators-checklist',
+                options=[
+                    {'label': 'SMA', 'value': 'sma'},
+                    {'label': 'EMA', 'value': 'ema'},
+                ],
+                value=[],
+                labelStyle={'display': 'inline-block', 'marginRight': '10px'}
+            ),
+            html.Div([
+                html.Label("Période SMA:"),
+                dcc.Input(id='sma-period', type='number', value=20, min=1, step=1)
+            ], id='sma-period-container', style={'display': 'none', 'marginTop': '10px'}),
+            html.Div([
+                html.Label("Période EMA:"),
+                dcc.Input(id='ema-period', type='number', value=20, min=1, step=1)
+            ], id='ema-period-container', style={'display': 'none', 'marginTop': '10px'})
+        ], style={'textAlign': 'center', 'padding': '10px'}),
+
+
+
         # Zone des onglets et graphiques centrée
         html.Div([
             dcc.Tabs(id='tabs-graph', value='tab-price', children=[

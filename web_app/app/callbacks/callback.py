@@ -6,6 +6,16 @@ from controllers import csv_controller, trade_controller, chart_controller
 
 def register_callbacks(app):
 
+    @ app.callback(
+        [Output('sma-period-container', 'style'),
+        Output('ema-period-container', 'style')],
+        [Input('tech-indicators-checklist', 'value')]
+    )
+    def update_period_fields(selected_indicators):
+        sma_style = {'display': 'block', 'marginTop': '10px'} if 'sma' in selected_indicators else {'display': 'none'}
+        ema_style = {'display': 'block', 'marginTop': '10px'} if 'ema' in selected_indicators else {'display': 'none'}
+        return sma_style, ema_style
+
     @app.callback(
         Output('price-options', 'style'),
         [Input('tabs-graph', 'value')]

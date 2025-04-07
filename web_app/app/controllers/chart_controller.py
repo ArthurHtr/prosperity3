@@ -2,26 +2,24 @@
 # app/controllers/chart_controller.py
 import plotly.graph_objs as go
 
-def create_price_chart(data, display_options=[], trades_data=None):
+def create_price_chart(data, display_options=[], trades_data=None, tech_indicators=[], sma_period=20, ema_period=20):
     """
-    Crée un graphique des prix avec la possibilité de sélectionner via un menu déroulant
-    les données à afficher.
+    Crée un graphique des prix avec options de visualisation.
     
     Paramètres :
       - data: DataFrame contenant les données de marché.
-      - display_options: liste de chaînes correspondant aux colonnes à afficher.
-        Les options possibles sont par exemple :
-           'mid_price', 'bid_price_1', 'bid_price_2', 'bid_price_3',
-           'ask_price_1', 'ask_price_2', 'ask_price_3',
-           et 'overlay_trades' pour activer l'overlay des trades.
-      - trades_data: DataFrame des trades à superposer si 'overlay_trades' est dans display_options.
+      - display_options: liste de colonnes à afficher (ex: 'mid_price', 'bid_price_1', etc., et 'overlay_trades').
+      - trades_data: DataFrame des trades pour overlay si demandé.
+      - tech_indicators: liste d'indicateurs techniques sélectionnés (ex: 'sma', 'ema', 'bollinger', 'macd', 'rsi').
+      - sma_period: période pour le calcul de la SMA.
+      - ema_period: période pour le calcul de l'EMA.
     """
     if data.empty:
         return go.Figure(data=[], layout=go.Layout(title="Aucune donnée pour le graphique de prix"))
     
     fig = go.Figure()
     
-    # Pour chaque option cochée (sauf overlay_trades), on ajoute une trace si la colonne existe
+    # Affichage des données de base sélectionnées
     for option in display_options:
         if option == 'overlay_trades':
             continue
@@ -34,7 +32,28 @@ def create_price_chart(data, display_options=[], trades_data=None):
                 name=option.replace('_', ' ').title()
             ))
     
-    # Si l'overlay des trades est demandé
+    # Calcul et ajout des indicateurs techniques
+    if 'sma' in tech_indicators and 'mid_price' in data.columns:
+        data['sma'] = data['mid_price'].rolling(window=int(sma_period)).mean()
+        fig.add_trace(go.Scatter(
+            x=data['timestamp'],
+            y=data['sma'],
+            mode='lines',
+            name=f'SMA ({sma_period})',
+            line=dict(dash='dot')
+        ))
+    if 'ema' in tech_indicators and 'mid_price' in data.columns:
+        data['ema'] = data['mid_price'].ewm(span=int(ema_period), adjust=False).mean()
+        fig.add_trace(go.Scatter(
+            x=data['timestamp'],
+            y=data['ema'],
+            mode='lines',
+            name=f'EMA ({ema_period})',
+            line=dict(dash='dash')
+        ))
+    # Vous pouvez ajouter d'autres indicateurs techniques ici (Bollinger, MACD, RSI, etc.)
+    
+    # Overlay des trades si demandé
     if 'overlay_trades' in display_options and trades_data is not None and not trades_data.empty:
         fig.add_trace(go.Scatter(
             x=trades_data['timestamp'],
