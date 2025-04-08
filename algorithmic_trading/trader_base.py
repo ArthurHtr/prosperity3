@@ -9,6 +9,10 @@ from models.datamodel import TradingState, Order
 
 from strategies.RAINFOREST_RESIN.scalping import RainforestResinScalping
 
+
+
+
+
 class Trader:
     def __init__(self):
         # Dictionnaire associant chaque produit à sa stratégie
