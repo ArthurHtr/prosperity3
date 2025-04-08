@@ -23,3 +23,4 @@ def load_market_data(product, day):
     except Exception as e:
         print(f"Erreur lors du chargement du fichier {filepath}: {e}")
         return pd.DataFrame()  # Retourne un DataFrame vide en cas d'erreur
+    

@@ -236,6 +236,7 @@ def create_orderbook_chart(data, selected_timestamp, trade_snapshot=None, xaxis_
         ))
 
     # Ajouter un marqueur pour les trades si disponibles (taille fixe)
+    
     if trade_snapshot is not None and not trade_snapshot.empty:
         traces.append(go.Scatter(
             x=trade_snapshot['price'],
@@ -259,3 +260,4 @@ def create_orderbook_chart(data, selected_timestamp, trade_snapshot=None, xaxis_
 
     fig = go.Figure(data=traces, layout=layout)
     return fig
+

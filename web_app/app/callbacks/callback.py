@@ -54,7 +54,7 @@ def register_callbacks(app):
         Input('ema-period', 'value')]
     )
 
-    def render_content(tab, product, day, start_ts, end_ts, price_options, tech_indicators, sma_period, ema_period):
+    def render_content(tab, product, day, start_ts, end_ts, price_options, tech_indicators, sma_period, ema_period):        
         # Chargement des données
         market_data = csv_controller.load_market_data(product, day)
         trades_data = trade_controller.load_trades_data(product, day)

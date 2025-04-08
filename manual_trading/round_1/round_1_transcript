@@ -1,0 +1,115 @@
+good day to all traders and teams you've
+tuned in to Tropical TV and today marks
+the start of a brand new trading season
+hopefully you've had some time to get
+familiar with your surroundings because
+it is about to go down haha let's dive
+right in starting today you can trade
+three of the most well-known commodities
+on the island first up we have
+rainforest resin a beautiful product
+found all around our archipelago it has
+a pretty sticky uh steady value of
+10,000 sea shells and it's one of our
+most reliable goods next up is kelp it's
+abundant in the seas that surround us
+but harvesting it can be tricky in
+certain conditions it's valued at 2,000
+seashells per piece but beware it's
+known to be a bit unpredictable and
+finally we have squid ink darker than
+the night sky and as mysterious as the
+deepest seas this highly appreciated
+commodity is also valued at 2,000
+seashells and although its price can
+swing a bit some say there is a pattern
+to be discovered in its price
+progression that's all you need to know
+to start writing your very first Python
+program and craft a strategy to turn
+these well-known goods into your first
+big profit 
+
+
+to celebrate the start of a
+new trading season we've invited
+representatives from the surrounding
+archipelos to join us for the annual
+archipelago tradeoff what a joy to
+welcome back our longtime friend Pam the
+Penguin from the North Archipelago she's
+here to trade snowballs the main
+currency of her home market and ah yes
+there he is our pizza loving friend from
+the South Archipelago Devon the Duck
+devon we're all excited to see you again
+especially after the fallout from your
+highly controversial pineapple toppings
+act if my sources are correct the
+situation has cooled off and the only
+lasting consequence of your
+decision-making is a hyperinflated
+currency and indeed I can see you
+brought whole pizzas this time instead
+of single slices with pineapple of
+course ah let's not start that debate
+again well Devon it's great to have you
+back and finally our third guest is
+Benny the Bull from the West Archipelago
+it's his first time participating in the
+tradeoff and he has brought silicon
+nuggets to trade with welcome Benny
+enjoy your first visit and happy trading
+this special tradeoff will only last one
+round so make sure to trade with all
+three visitors and try to trade your way
+to some additional seashell profits
+while you can that's it for today's
+Tropical TV have fun collecting
+seashells and hope to see you all soon.
+
+
+
+The trading table below shows you the exchange rates from one currency to another.
+For example: For every Snowball you trade for Pizzas, you will get 1,45 Pizzas in return.
+
+| From \ To        | Snowballs | Pizza's | Silicon Nuggets | SeaShells |
+|------------------|-----------|---------|-----------------|-----------|
+| **Snowballs**    | 1         | 1.45    | 0.52            | 0.72      |
+| **Pizza's**      | 0.7       | 1       | 0.31            | 0.48      |
+| **Silicon Nuggets** | 1.95    | 3.1     | 1               | 1.49      |
+| **SeaShells**    | 1.34      | 1.98    | 0.64            | 1         |
+
+
+Your trading strategy
+Available capital: 500.000 seashells
+
+
+
+
+
+Trade Sequence:
+
+Trade 1: SeaShells → Pizza’s
+
+Rationale: The initial conversion from SeaShells to Pizza’s gives you a premium (1 S = 1.98 P). However, because Pizza’s are hyperinflated, the goal is to hold them as briefly as possible.
+
+Action: Convert your 500,000 SeaShells into Pizza’s to catch the high initial rate.
+
+Trade 2: Pizza’s → Snowballs
+
+Rationale: Immediately moving out of Pizza’s is critical. By trading Pizza’s for Snowballs (using the rate of 1 Pizza = 0.7 Snowballs), you exit the hyperinflated market quickly and step into a more stable intermediary.
+
+Action: Execute the conversion quickly to avoid any delayed devaluation that might happen in the Pizza market.
+
+Trade 3: Snowballs → Silicon Nuggets
+
+Rationale: With Snowballs providing a stable foothold, you now reach out to Benny’s market. Silicon Nuggets are new, and while their pricing is volatile, the exchange rate (1 Snowball = 0.52 Silicon Nuggets) suggests that you could obtain these at a “discount” relative to your stable base. This step plays on the possibility that early entrants in a nascent market might offer extra conversion value.
+
+Action: Convert your Snowballs into Silicon Nuggets—this is where market savvy comes in. Because Benny is new, you’d want to time your order to lock in the favorable 0.52 rate before any corrections take place.
+
+Trade 4: Silicon Nuggets → SeaShells
+
+Rationale: Finally, you convert your Silicon Nuggets back into SeaShells. The rate here (1 Nugget = 1.49 SeaShells) is attractive and reverses the undervaluation possibly present due to the newbie status of Benny’s market. By finalizing your trade here, you secure your gains in the original currency.
+
+Action: Convert the acquired Silicon Nuggets at 1.49 SeaShells per Nugget to complete your cycle.
